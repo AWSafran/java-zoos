@@ -1,4 +1,4 @@
-package com.zoo.zoo;
+package com.zoo.zoopackage;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,6 @@
-package com.zoo.zoo.model;
+package com.zoo.zoopackage.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
@@ -10,24 +12,22 @@ public class Telephone
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long phoneid;
     
-    private String zooname;
+    private String phonetype;
     private String phonenumber;
-    
-    private long zooid;
     
     @ManyToOne
     @JoinColumn(name = "zooid")
+    @JsonIgnoreProperties("telephones")
     private Zoo zoo;
     
     public Telephone()
     {
     }
     
-    public Telephone(String zooname, String phonenumber, long zooid, Zoo zoo)
+    public Telephone(String phonetype, String phonenumber, Zoo zoo)
     {
-        this.zooname = zooname;
+        this.phonetype = phonetype;
         this.phonenumber = phonenumber;
-        this.zooid = zooid;
         this.zoo = zoo;
     }
     
@@ -41,14 +41,14 @@ public class Telephone
         this.phoneid = phoneid;
     }
     
-    public String getZooname()
+    public String getPhonetype()
     {
-        return zooname;
+        return phonetype;
     }
     
-    public void setZooname(String zooname)
+    public void setPhonetype(String phonetype)
     {
-        this.zooname = zooname;
+        this.phonetype = phonetype;
     }
     
     public String getPhonenumber()
@@ -59,16 +59,6 @@ public class Telephone
     public void setPhonenumber(String phonenumber)
     {
         this.phonenumber = phonenumber;
-    }
-    
-    public long getZooid()
-    {
-        return zooid;
-    }
-    
-    public void setZooid(long zooid)
-    {
-        this.zooid = zooid;
     }
     
     public Zoo getZoo()
