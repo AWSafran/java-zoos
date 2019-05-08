@@ -4,6 +4,7 @@ import com.zoo.zoopackage.model.Zoo;
 import com.zoo.zoopackage.repos.ZooRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
@@ -33,5 +34,20 @@ public class ZooServiceImpl implements ZooService
         }
         return zoo;
         
+    }
+    
+    @Transactional
+    @Override
+    public void deleteById(long id) throws EntityNotFoundException
+    {
+        if(zoorepo.findById(id).isPresent())
+        {
+            zoorepo.deletePhoneRecordsByZooid(id);
+            zoorepo.deleteZooFromAnimalRecords(id);
+            zoorepo.deleteById(id);
+        } else
+        {
+            throw new EntityNotFoundException();
+        }
     }
 }

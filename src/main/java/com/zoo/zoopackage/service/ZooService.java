@@ -9,4 +9,6 @@ public interface ZooService
     public ArrayList<Zoo> findAll();
     
     public Zoo findZooByName(String name);
+    
+    public void deleteById(long id);
 }
