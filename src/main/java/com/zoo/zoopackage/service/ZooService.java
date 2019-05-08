@@ -13,4 +13,6 @@ public interface ZooService
     public void deleteById(long id);
     
     public Zoo addZoo(Zoo zoo);
+    
+    public Zoo updateZoo(Zoo zoo, long zooid);
 }

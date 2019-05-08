@@ -1,9 +1,13 @@
 package com.zoo.zoopackage.repos;
 
+import com.zoo.zoopackage.model.Animal;
+import com.zoo.zoopackage.model.Telephone;
 import com.zoo.zoopackage.model.Zoo;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+
+import java.util.ArrayList;
 
 public interface ZooRepository extends CrudRepository<Zoo, Long>
 {
@@ -20,4 +24,8 @@ public interface ZooRepository extends CrudRepository<Zoo, Long>
     @Modifying
     @Query(value = "INSERT INTO zoo(zooid, zooname) VALUES(:zooid, :name)", nativeQuery = true)
     void addZoo(String name, long zooid);
+    
+    @Modifying
+    @Query(value = "UPDATE zoo SET zooname = :zooname WHERE zooid = :zooid", nativeQuery = true)
+    void updateZoo(String zooname, long zooid);
 }

@@ -28,4 +28,12 @@ public class AdminController
         
         return new ResponseEntity<>(zoo, HttpStatus.OK);
     }
+    
+    @PutMapping(value = "/zoos/{id}", consumes = {"application/json"}, produces = {"application/json"})
+    public ResponseEntity<?> updateZoo(@RequestBody Zoo zoo, @PathVariable long id)
+    {
+        zooService.updateZoo(zoo, id);
+        
+        return new ResponseEntity<>(zoo, HttpStatus.OK);
+    }
 }

@@ -59,4 +59,13 @@ public class ZooServiceImpl implements ZooService
         
         return zoo;
     }
+    
+    @Transactional
+    @Override
+    public Zoo updateZoo(Zoo zoo, long zooid)
+    {
+        zoorepo.updateZoo(zoo.getZooname(), zooid);
+        
+        return zoo;
+    }
 }
