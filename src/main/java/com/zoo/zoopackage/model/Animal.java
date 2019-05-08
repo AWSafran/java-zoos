@@ -1,6 +1,8 @@
 package com.zoo.zoopackage.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.zoo.zoopackage.view.View;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -12,8 +14,10 @@ public class Animal
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonView(View.AnimalsOnly.class)
     private long animalid;
     
+    @JsonView(View.AnimalsOnly.class)
     private String animaltype;
     
     @ManyToMany(mappedBy = "animals")

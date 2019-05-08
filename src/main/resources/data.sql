@@ -1,5 +1,5 @@
  INSERT INTO zoo (zooid, zooname)
-         VALUES(1, 'Gladys'),
+         VALUES(1, 'Gladys Porter Zoo'),
                 (2, 'Point Defiance Zoo'),
                 (3, 'San Diego Zoo'),
                 (4, 'San Antonio Zoo'),
