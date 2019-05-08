@@ -16,4 +16,61 @@ public class Zoo
     
     @OneToMany(mappedBy = "zoo")
     private List<Telephone> telephones = new ArrayList<>();
+    
+    @ManyToMany
+    @JoinTable(name = "zooanimals",
+                joinColumns = {@JoinColumn(name = "zooid")},
+                inverseJoinColumns = {@JoinColumn(name = "animalid")})
+    private List<Animal> animals = new ArrayList<>();
+    
+    public Zoo()
+    {
+    }
+    
+    public Zoo(String zooname, List<Telephone> telephones, List<Animal> animals)
+    {
+        this.zooname = zooname;
+        this.telephones = telephones;
+        this.animals = animals;
+    }
+    
+    public long getZooid()
+    {
+        return zooid;
+    }
+    
+    public void setZooid(long zooid)
+    {
+        this.zooid = zooid;
+    }
+    
+    public String getZooname()
+    {
+        return zooname;
+    }
+    
+    public void setZooname(String zooname)
+    {
+        this.zooname = zooname;
+    }
+    
+    public List<Telephone> getTelephones()
+    {
+        return telephones;
+    }
+    
+    public void setTelephones(List<Telephone> telephones)
+    {
+        this.telephones = telephones;
+    }
+    
+    public List<Animal> getAnimals()
+    {
+        return animals;
+    }
+    
+    public void setAnimals(List<Animal> animals)
+    {
+        this.animals = animals;
+    }
 }
