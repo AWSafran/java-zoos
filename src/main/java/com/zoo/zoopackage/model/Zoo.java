@@ -77,4 +77,15 @@ public class Zoo
     {
         this.animals = animals;
     }
+    
+    @Override
+    public String toString()
+    {
+        return "Zoo{" +
+                "zooid=" + zooid +
+                ", zooname='" + zooname + '\'' +
+                ", telephones=" + telephones +
+                ", animals=" + animals +
+                '}';
+    }
 }

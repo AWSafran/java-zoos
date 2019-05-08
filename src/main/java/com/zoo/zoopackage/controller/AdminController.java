@@ -1,5 +1,6 @@
 package com.zoo.zoopackage.controller;
 
+import com.zoo.zoopackage.model.Zoo;
 import com.zoo.zoopackage.service.ZooService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,5 +19,13 @@ public class AdminController
     {
         zooService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+    
+    @PostMapping(value = "/zoos", consumes = {"application/json"}, produces = {"application/json"})
+    public ResponseEntity<?> addZoo(@RequestBody Zoo zoo)
+    {
+        zooService.addZoo(zoo);
+        
+        return new ResponseEntity<>(zoo, HttpStatus.OK);
     }
 }

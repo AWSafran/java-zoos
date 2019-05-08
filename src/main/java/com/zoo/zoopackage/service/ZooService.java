@@ -11,4 +11,6 @@ public interface ZooService
     public Zoo findZooByName(String name);
     
     public void deleteById(long id);
+    
+    public Zoo addZoo(Zoo zoo);
 }

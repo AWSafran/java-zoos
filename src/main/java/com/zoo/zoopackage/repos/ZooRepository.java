@@ -16,4 +16,8 @@ public interface ZooRepository extends CrudRepository<Zoo, Long>
     @Modifying
     @Query(value = "DELETE FROM telephone WHERE zooid = :zooid", nativeQuery = true)
     void deletePhoneRecordsByZooid(long zooid);
+    
+    @Modifying
+    @Query(value = "INSERT INTO zoo(zooid, zooname) VALUES(:zooid, :name)", nativeQuery = true)
+    void addZoo(String name, long zooid);
 }

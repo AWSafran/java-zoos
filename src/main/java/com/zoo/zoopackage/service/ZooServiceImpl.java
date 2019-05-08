@@ -50,4 +50,13 @@ public class ZooServiceImpl implements ZooService
             throw new EntityNotFoundException();
         }
     }
+    
+    @Transactional
+    @Override
+    public Zoo addZoo(Zoo zoo)
+    {
+        zoorepo.addZoo(zoo.getZooname(), zoo.getZooid());
+        
+        return zoo;
+    }
 }
